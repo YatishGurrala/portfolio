@@ -46,5 +46,9 @@ export const siteConfig = {
 };
 
 export function absoluteUrl(path = "/") {
-  return new URL(path, siteConfig.siteUrl.endsWith("/") ? siteConfig.siteUrl : `${siteConfig.siteUrl}/`).toString();
+  const baseUrl = new URL(siteConfig.siteUrl);
+  const basePath = baseUrl.pathname.replace(/\/$/, "");
+  const normalizedPath = path === "/" ? "/" : `/${path.replace(/^\/+/, "")}`;
+  baseUrl.pathname = `${basePath}${normalizedPath}`.replace(/\/{2,}/g, "/");
+  return baseUrl.toString();
 }
