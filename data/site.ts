@@ -1,6 +1,18 @@
 import { NavigationItem } from "@/data/types";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://YatishGurrala.github.io/portfolio";
+const rawSiteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "").trim();
+const rawVercelProdUrl = (process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL || "").trim();
+const defaultFallback = "http://localhost:3000";
+
+let selectedUrl = rawSiteUrl || rawVercelProdUrl || defaultFallback;
+selectedUrl = selectedUrl.replace(/\/$/, "");
+
+if (!/^https?:\/\//i.test(selectedUrl)) {
+  const isLocal = /localhost|^127\.|^10\.|^192\.168\.|^172\.(1[6-9]|2[0-9]|3[0-1])\./i.test(selectedUrl);
+  selectedUrl = `${isLocal ? "http" : "https"}://${selectedUrl}`;
+}
+
+const siteUrl = selectedUrl;
 
 export const siteConfig = {
   name: "Yatish Gurrala",
@@ -44,10 +56,10 @@ export const siteConfig = {
   ] satisfies NavigationItem[],
 };
 
-export function absoluteUrl(path = "/") {
+export function absoluteUrl(path = "") {
   const baseUrl = new URL(siteConfig.siteUrl);
-  const basePath = baseUrl.pathname.replace(/\/$/, "");
-  const normalizedPath = path === "/" ? "/" : `/${path.replace(/^\/+/, "")}`;
-  baseUrl.pathname = `${basePath}${normalizedPath}`.replace(/\/{2,}/g, "/");
+  const cleanPath = path.replace(/^\/+/, "").replace(/\/{2,}/g, "/");
+  const existingPath = baseUrl.pathname.replace(/\/$/, "");
+  baseUrl.pathname = existingPath + (cleanPath ? `/${cleanPath}` : "");
   return baseUrl.toString();
 }

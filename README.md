@@ -48,34 +48,21 @@ npm run typecheck
 npm run build
 ```
 
-The static export is written to `out/`.
+This compiles an optimized server-capable Next.js application.
 
-## 6. GitHub Pages deployment
+## 6. Vercel deployment
 
-GitHub Actions workflow: `/home/runner/work/portfolio/portfolio/.github/workflows/deploy.yml`
+The application is configured to deploy directly to Vercel via Vercel's Git integration.
 
-### Activation steps
+### Configuration details
 
-1. Push the repository to GitHub.
-2. In GitHub, open **Settings → Pages**.
-3. Under **Build and deployment**, choose **GitHub Actions** as the source.
-4. Make sure the default branch used for deployment matches the workflow trigger (`Main`).
-5. Trigger the workflow by pushing to `Main` or running it manually from the Actions tab.
-
-### How basePath and assetPrefix work
-
-The site reads the repository name from `package.json`.
-
-- Repository name: `portfolio`
-- GitHub Pages path: `https://USERNAME.github.io/portfolio/`
-
-`next.config.ts` automatically applies `basePath` and `assetPrefix` during GitHub Actions builds.
-
-### How to change `USERNAME` or repository name
-
-- Change `package.json` → `name` if the repository name changes.
-- Update `NEXT_PUBLIC_SITE_URL` in the workflow if your published URL changes.
-- If you fork the repository, the workflow automatically uses the GitHub repository owner for the `USERNAME` portion of the Pages URL.
+- **Existing Vercel project**: `yatish-portfolio`
+- **Connected GitHub repository**: `YatishGurrala/portfolio`
+- **Production branch**: `Main`
+- **Deployment trigger**: Every push to the `Main` branch triggers an automatic build and deployment.
+- **Canonical URL resolution**:
+  - Vercel's stable production project URL (`NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL`) is automatically used as the canonical URL fallback.
+  - To override this with a custom personal portfolio domain later, configure `NEXT_PUBLIC_SITE_URL` in your Vercel Project Settings under Environment Variables (never set this to `techbckp.com`).
 
 ## 7. How to edit personal information
 
@@ -144,12 +131,7 @@ Do not commit API keys or secrets. Only public URLs should be stored in the repo
 
 ## 13. How to configure a custom domain later
 
-If you want to use a custom domain later:
-
-1. Add your custom domain in **Settings → Pages**.
-2. Set `NEXT_PUBLIC_CUSTOM_DOMAIN=true` during the build so `next.config.ts` does not apply the repository base path.
-3. Add a `CNAME` file to `public/` when you are ready.
-4. Update `NEXT_PUBLIC_SITE_URL` to your final domain.
+On Vercel, simply add your custom domain in the **Domains** section of your project settings. Update `NEXT_PUBLIC_SITE_URL` in your Vercel project environment variables to match your custom domain.
 
 ## 14. How to update SEO images
 
