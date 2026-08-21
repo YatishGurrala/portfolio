@@ -110,3 +110,20 @@ export interface Project {
   lessonsLearned: string[];
   nextSteps: string[];
 }
+
+export interface WorkExperience {
+  organization: string;
+  role: string;
+  employmentType?: string;
+  startDate: string; // YYYY-MM format
+  endDate?: string;  // YYYY-MM format
+  current: boolean;
+  location?: string;
+  summary: string;
+  highlights: string[];
+  technologies: string[];
+  relatedProjectSlugs?: string[];
+  confidentialitySafeName?: string;
+  featured: boolean;
+}
+

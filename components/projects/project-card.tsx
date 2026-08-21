@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
 
+import { ButtonLink } from "@/components/ui/button-link";
 import { Project } from "@/data/types";
 
 interface ProjectCardProps {
@@ -10,7 +10,7 @@ interface ProjectCardProps {
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <article className="grid-card flex h-full flex-col gap-5">
-      <div className="overflow-hidden rounded-2xl border border-white/60 bg-slate-100 dark:border-white/10 dark:bg-slate-900">
+      <div className="overflow-hidden rounded-2xl border border-neutral-200/70 bg-neutral-100 dark:border-white/10 dark:bg-neutral-900">
         <Image
           src={project.thumbnail}
           alt={`${project.title} project thumbnail`}
@@ -37,18 +37,16 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </ul>
       </div>
       <div className="mt-auto flex flex-wrap gap-3 pt-2">
-        <Link className="button-primary" href={project.caseStudyUrl}>
-          View Case Study
-        </Link>
+        <ButtonLink href={project.caseStudyUrl}>View Case Study</ButtonLink>
         {project.liveUrl ? (
-          <a className="button-secondary" href={project.liveUrl} target="_blank" rel="noreferrer">
+          <ButtonLink href={project.liveUrl} external variant="secondary">
             Live Product
-          </a>
+          </ButtonLink>
         ) : null}
         {project.repositoryUrl ? (
-          <a className="button-secondary" href={project.repositoryUrl} target="_blank" rel="noreferrer">
+          <ButtonLink href={project.repositoryUrl} external variant="secondary">
             Repository
-          </a>
+          </ButtonLink>
         ) : null}
       </div>
     </article>

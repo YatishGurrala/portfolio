@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import Script from "next/script";
 
 import "./globals.css";
 
@@ -23,22 +22,31 @@ export const viewport: Viewport = {
   ],
 };
 
-const themeScript = `(() => {
-  const key = "portfolio-theme";
-  const stored = localStorage.getItem(key);
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  const theme = stored || (prefersDark ? "dark" : "light");
-  document.documentElement.classList.toggle("dark", theme === "dark");
-  document.documentElement.style.colorScheme = theme;
-})();`;
-
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var storedTheme = localStorage.getItem("portfolio-theme");
+                  var preferredDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+                  var theme = storedTheme || (preferredDark ? "dark" : "light");
+                  if (theme === "dark") {
+                    document.documentElement.classList.add("dark");
+                  } else {
+                    document.documentElement.classList.remove("dark");
+                  }
+                  document.documentElement.style.colorScheme = theme;
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
+      </head>
       <body className="min-h-screen">
-        <Script id="theme-script" strategy="beforeInteractive">
-          {themeScript}
-        </Script>
         <div className="flex min-h-screen flex-col">
           <SiteHeader />
           <main className="flex-1">{children}</main>
@@ -48,3 +56,4 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     </html>
   );
 }
+

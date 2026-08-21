@@ -14,11 +14,10 @@ export const projects: Project[] = [
     caseStudyUrl: "/projects/citegpt",
     confidentiality: {
       status: "public",
-      label: "Editable product details",
-      note: "Update feature depth, screenshots, and public links as the product evolves.",
+      label: "Public project details",
     },
-    role: "Founder, product engineer, and full-stack developer",
-    duration: "Editable placeholder — add timeline",
+    role: "Founder & Full-Stack Product Developer",
+    duration: "July 2026 - Present",
     projectType: "AI SaaS",
     heroSummary: "CiteGPT focuses on giving businesses a support and lead-capture chatbot that stays grounded in their own site content.",
     overview: {
@@ -36,9 +35,9 @@ export const projects: Project[] = [
       "Added a configurable embeddable widget, conversation visibility, and lead capture hooks for business workflows.",
     ],
     responsibilities: [
-      "Defined product scope, experience flow, and reusable SaaS architecture.",
+      "Defined product scope, experience flow, and SaaS architecture.",
       "Built dashboard, content-ingestion flows, and AI response surfaces.",
-      "Planned feature boundaries to avoid over-claiming capabilities before they are production-ready.",
+      "Implemented retrieval-augmented generation (RAG) pipelines and citation-grounded answers.",
     ],
     keyFeatures: [
       { title: "Website and sitemap ingestion", description: "Prepare business content for searchable AI answers from public website sources." },
@@ -49,20 +48,13 @@ export const projects: Project[] = [
       { title: "Lead capture", description: "Create opportunities to turn helpful conversations into follow-up business inquiries." },
     ],
     screenshots: [
-      { src: "/images/projects/citegpt/cover.svg", alt: "CiteGPT dashboard cover illustration", caption: "Editable placeholder hero visual for CiteGPT.", type: "desktop" },
-      { src: "/images/projects/citegpt/dashboard.svg", alt: "CiteGPT SaaS dashboard placeholder", caption: "Replace with a real dashboard screenshot when available.", type: "desktop" },
-      { src: "/images/projects/citegpt/widget.svg", alt: "CiteGPT widget placeholder", caption: "Use this slot for the embeddable widget, mobile mockups, or a short demo GIF.", type: "mockup" },
+      { src: "/images/projects/citegpt/cover.svg", alt: "CiteGPT dashboard cover illustration", caption: "Dashboard cover representation for CiteGPT.", type: "desktop" },
     ],
     architecture: [
-      { label: "Frontend", items: ["Next.js app", "Responsive UI", "Embeddable widget surfaces"] },
-      { label: "Backend", items: ["Editable placeholder — add API stack", "Retrieval pipeline", "Conversation processing"] },
-      { label: "Database", items: ["Editable placeholder — add chosen data store"] },
-      { label: "Authentication", items: ["Editable placeholder — add auth approach when finalized"] },
-      { label: "APIs", items: ["AI API integrations", "Website ingestion utilities"] },
-      { label: "Hosting", items: ["Editable placeholder — add hosting platform"] },
-      { label: "Payments", items: ["Editable placeholder — add subscription tooling when live"] },
-      { label: "Analytics", items: ["Conversation review", "Lead capture visibility"] },
-      { label: "CI/CD", items: ["GitHub Actions", "Static marketing routes", "Editable deployment notes"] },
+      { label: "Frontend", items: ["Next.js App Router", "Responsive Tailwind CSS UI", "Embeddable JS widget"] },
+      { label: "Backend", items: ["Next.js Server Actions & API routes", "Retrieval pipeline"] },
+      { label: "Database / ORM", items: ["PostgreSQL", "Supabase", "Prisma ORM"] },
+      { label: "APIs & Integration", items: ["AI API integrations", "Website ingestion utilities"] },
     ],
     challenges: [
       {
@@ -77,45 +69,42 @@ export const projects: Project[] = [
     developmentProcess: [
       "Discovery around business use cases, support workflows, and citation expectations.",
       "Feature planning for ingestion, retrieval, widget delivery, and dashboard configuration.",
-      "UI and architecture decisions to keep the product extensible while shipping practical slices.",
+      "UI and architecture decisions to keep the product extensible.",
       "Implementation, testing, and refinement of the core SaaS workflow.",
     ],
     results: [
-      "Delivered a functional AI SaaS concept focused on grounded chatbot interactions.",
+      "Delivered a functional AI SaaS platform focused on grounded chatbot interactions.",
       "Created a scalable structure for adding dashboard, widget, and analytics enhancements later.",
-      "Prepared the product story for demos, founder conversations, and future launch work.",
     ],
     lessonsLearned: [
       "Products that explain their answers clearly earn more trust than black-box AI experiences.",
       "Separating configuration surfaces from the end-user chat flow keeps the product easier to reason about.",
-      "A focused first release is more useful than over-claiming advanced platform capabilities too early.",
     ],
     nextSteps: [
-      "Replace placeholder screenshots with real product visuals.",
-      "Add public live-product details when the launch workflow is ready.",
-      "Expand reporting and conversation insights based on real user feedback.",
+      "Add dynamic conversation metrics dashboard.",
+      "Support advanced document parsing for ingestion.",
     ],
+    liveUrl: "https://citegpt.xyz",
   },
   {
-    title: "ResumeLoop AI",
+    title: "ResumeLoopAI",
     slug: "resumeloop-ai",
     shortDescription: "AI-powered career assistant for resume analysis, content generation, and job-search workflow support.",
     description:
-      "An AI career SaaS concept designed to help users analyze resumes, generate career content, and organize job-search workflows.",
+      "An AI-assisted career platform and career operating system that helps job seekers discover opportunities, manage reviewed career information, analyze job/resume alignment, improve résumés and track their progress.",
     category: "AI and SaaS",
-    tags: ["AI career SaaS", "Resume analysis", "Freemium", "User dashboard"],
+    tags: ["Next.js", "React", "TypeScript", "AI Integration", "User Dashboard"],
     thumbnail: "/images/projects/resumeloop-ai/cover.svg",
     featured: true,
     caseStudyUrl: "/projects/resumeloop-ai",
     confidentiality: {
       status: "public",
-      label: "Editable product details",
-      note: "Update feature scope and screenshots as ResumeLoop AI becomes public.",
+      label: "Public project details",
     },
-    role: "Founder, product planner, and full-stack builder",
-    duration: "Editable placeholder — add timeline",
+    role: "Founder & Full-Stack Product Developer",
+    duration: "January 2026 - Present",
     projectType: "AI Career SaaS",
-    heroSummary: "ResumeLoop AI is designed to reduce scattered job-search work by combining AI assistance with practical workflow management.",
+    heroSummary: "ResumeLoopAI reduces scattered job-search work by combining AI assistance with practical workflow management.",
     overview: {
       product: "A career assistant that helps users review resumes, create AI-assisted job-search content, and manage progress in one place.",
       audience: "Job seekers and professionals who want more structure around resume improvement and application workflows.",
@@ -127,36 +116,27 @@ export const projects: Project[] = [
     ],
     solution: [
       "Defined a user dashboard that combines resume analysis, content generation, and job-search organization.",
-      "Planned usage-aware limits and freemium mechanics so the product can support lightweight trials and more committed usage.",
       "Framed the product around practical readiness workflows instead of vague AI assistance.",
     ],
     responsibilities: [
       "Researched the workflow gaps the product should solve.",
-      "Mapped AI features to clear user outcomes like resume improvement, content creation, and progress tracking.",
-      "Designed the structure so future subscription and dashboard features can grow without a full rewrite.",
+      "Mapped AI features to clear user outcomes like resume improvement and progress tracking.",
+      "Designed and built Next.js application frontend and backend API structures.",
     ],
     keyFeatures: [
       { title: "Resume analysis", description: "Review resumes through an AI-assisted workflow that surfaces improvement opportunities." },
       { title: "AI content generation", description: "Draft job-search content with a clearer workflow than isolated AI prompts." },
       { title: "Job tracking", description: "Keep applications and follow-up tasks in one structured space." },
-      { title: "Usage-based limits", description: "Support freemium exploration without losing control of product boundaries." },
       { title: "Career dashboard", description: "Combine readiness tasks, generated assets, and progress into a single experience." },
     ],
     screenshots: [
-      { src: "/images/projects/resumeloop-ai/cover.svg", alt: "ResumeLoop AI hero placeholder", caption: "Replace with a landing page or dashboard hero when available.", type: "desktop" },
-      { src: "/images/projects/resumeloop-ai/dashboard.svg", alt: "ResumeLoop AI dashboard placeholder", caption: "Use for the job-search workflow dashboard.", type: "desktop" },
-      { src: "/images/projects/resumeloop-ai/workflow.svg", alt: "ResumeLoop AI workflow mockup", caption: "Use this slot for a mobile-friendly workflow or guided resume review image.", type: "mockup" },
+      { src: "/images/projects/resumeloop-ai/cover.svg", alt: "ResumeLoopAI hero cover illustration", caption: "Dashboard cover representation for ResumeLoopAI.", type: "desktop" },
     ],
     architecture: [
-      { label: "Frontend", items: ["Next.js interface", "Dashboard flows", "Responsive forms"] },
-      { label: "Backend", items: ["Editable placeholder — add selected API stack"] },
-      { label: "Database", items: ["Editable placeholder — add user/project data store"] },
-      { label: "Authentication", items: ["Editable placeholder — add auth provider"] },
-      { label: "APIs", items: ["AI content services", "Resume analysis utilities"] },
-      { label: "Hosting", items: ["Editable placeholder — add deployment platform"] },
-      { label: "Payments", items: ["Freemium subscription model — editable placeholder"] },
-      { label: "Analytics", items: ["Usage tracking", "Workflow completion visibility"] },
-      { label: "CI/CD", items: ["GitHub Actions", "Editable release workflow"] },
+      { label: "Frontend", items: ["Next.js App Router", "React", "TypeScript", "Tailwind CSS"] },
+      { label: "Backend", items: ["Node.js API routes"] },
+      { label: "Database / ORM", items: ["PostgreSQL"] },
+      { label: "APIs & Integration", items: ["AI content services", "Resume analysis utilities", "Browser-extension development"] },
     ],
     challenges: [
       {
@@ -171,23 +151,94 @@ export const projects: Project[] = [
     developmentProcess: [
       "Clarified the user workflow across preparation, applications, and follow-through.",
       "Planned feature sequencing for resume analysis, content generation, and tracking.",
-      "Shaped a dashboard-first information architecture that can support expansion later.",
-      "Implemented core product foundations with room for future integrations.",
+      "Implemented core product foundations.",
     ],
     results: [
-      "Delivered a functional SaaS direction for AI-assisted career workflows.",
-      "Created a clearer structure for adding subscriptions, user data, and future content templates.",
-      "Prepared the product for iterative refinement rather than a one-time launch asset.",
+      "Delivered a functional SaaS platform for AI-assisted career workflows.",
+      "Created a clear structure for user data and future content templates.",
     ],
     lessonsLearned: [
       "Workflow clarity matters more than adding every possible AI feature at once.",
-      "Freemium thinking should be reflected in product structure early, not patched in later.",
       "Career products benefit from blending guidance, utility, and follow-through.",
     ],
     nextSteps: [
-      "Replace placeholder visuals with real dashboard screens.",
-      "Add live product details and public links when available.",
-      "Refine onboarding and usage boundaries based on real user feedback.",
+      "Refine resume parsing accuracy.",
+      "Expand application tracking automation.",
+    ],
+    liveUrl: "https://resumeloopai.com",
+  },
+  {
+    title: "CalSnapAI",
+    slug: "calsnap-ai",
+    shortDescription: "AI-assisted mobile calorie tracker using image recognition to record meals and present nutrition results.",
+    description:
+      "An AI-assisted mobile food and calorie-tracking product that uses food-image recognition to help users record meals.",
+    category: "Mobile Apps",
+    tags: ["Android", "Kotlin", "Jetpack Compose", "AI Image Recognition"],
+    thumbnail: "/images/projects/calsnap-ai/cover.svg",
+    featured: true,
+    caseStudyUrl: "/projects/calsnap-ai",
+    confidentiality: {
+      status: "public",
+      label: "Private Development / Launch Preparation",
+    },
+    role: "Mobile Developer & Product Creator",
+    duration: "Launch preparation",
+    projectType: "Mobile Application",
+    heroSummary: "CalSnapAI simplifies meal and calorie logging by using mobile image recognition and structured nutrition result presentation.",
+    overview: {
+      product: "A mobile application utilizing image recognition to identify foods and calculate estimated nutritional content.",
+      audience: "Users seeking a frictionless way to log meals and track nutrition without manual database searching.",
+      purpose: "Reduce logging friction using smart image-recognition workflow.",
+    },
+    problem: [
+      "Manual calorie tracking is highly tedious, leading to user drop-off.",
+      "Existing food databases require manual search and portion estimation which is inaccurate and slow.",
+    ],
+    solution: [
+      "Created an app that identifies meal contents from a photo using food-image recognition.",
+      "Designed structured nutrition result presentation screens for calorie and macronutrient breakdown.",
+    ],
+    responsibilities: [
+      "Define product concept and core mobile user workflows.",
+      "Build native Android application using Kotlin and Jetpack Compose.",
+      "Integrate AI-based food image-recognition API endpoint.",
+      "Polish mobile UI/UX layouts for nutrition summaries.",
+    ],
+    keyFeatures: [
+      { title: "Food Image Recognition", description: "Identify dishes and foods from mobile snapshot images instantly." },
+      { title: "Nutrition Summary Cards", description: "Clearly present macronutrients, calories, and serving details." },
+      { title: "Frictionless Meal Log", description: "Log food history with a single tap after confirmation." },
+    ],
+    screenshots: [
+      { src: "/images/projects/calsnap-ai/cover.svg", alt: "CalSnapAI cover illustration", caption: "Concept design for CalSnapAI.", type: "mobile" },
+    ],
+    architecture: [
+      { label: "Mobile Client", items: ["Android app", "Kotlin", "Jetpack Compose"] },
+      { label: "APIs & Integration", items: ["AI food-image recognition API", "Nutrition database endpoints"] },
+    ],
+    challenges: [
+      {
+        challenge: "Handling complex multi-item meals from a photo.",
+        solution: "Designed a multi-item breakdown screen allowing users to confirm and adjust individual items.",
+      },
+    ],
+    developmentProcess: [
+      "Define mobile user journey and photo logging workflow.",
+      "Develop native Android camera and preview screens.",
+      "Integrate AI endpoint for food classification.",
+      "Implement local history database.",
+    ],
+    results: [
+      "Completed functional native Android calorie-tracking client.",
+      "Streamlined food logging flows to a single photo action.",
+    ],
+    lessonsLearned: [
+      "Friction is the primary reason users stop logging food; image recognition significantly lowers this barrier.",
+    ],
+    nextSteps: [
+      "Integrate offline food database fallback.",
+      "Support barcode scanning for packaged foods.",
     ],
   },
   {
@@ -203,8 +254,7 @@ export const projects: Project[] = [
     caseStudyUrl: "/projects/techbckp",
     confidentiality: {
       status: "public",
-      label: "Editable studio positioning",
-      note: "Update service positioning, portfolio links, and studio URL as Techbckp grows.",
+      label: "Public studio positioning",
     },
     role: "Founder, builder, and service lead",
     duration: "Ongoing",
@@ -237,20 +287,11 @@ export const projects: Project[] = [
       { title: "Websites and e-commerce", description: "Create polished marketing sites and storefront experiences where they support the business." },
     ],
     screenshots: [
-      { src: "/images/projects/techbckp/cover.svg", alt: "Techbckp hero illustration", caption: "Replace with a branded Techbckp homepage hero or studio overview.", type: "desktop" },
-      { src: "/images/projects/techbckp/services.svg", alt: "Techbckp services placeholder", caption: "Use for a services overview or capabilities layout.", type: "desktop" },
-      { src: "/images/projects/techbckp/mockup.svg", alt: "Techbckp mockup placeholder", caption: "Use for proposal snapshots, project frameworks, or service process visuals.", type: "mockup" },
+      { src: "/images/projects/techbckp/cover.svg", alt: "Techbckp hero illustration", caption: "Branded Techbckp homepage representation.", type: "desktop" },
     ],
     architecture: [
       { label: "Frontend", items: ["Marketing site", "Portfolio content", "Case-study content system"] },
-      { label: "Backend", items: ["No backend required for this static portfolio foundation"] },
-      { label: "Database", items: ["No database required"] },
-      { label: "Authentication", items: ["Not required for the public portfolio"] },
-      { label: "APIs", items: ["Optional contact integrations such as Formspree or Calendly"] },
       { label: "Hosting", items: ["GitHub Pages-compatible static export"] },
-      { label: "Payments", items: ["Not applicable on the public portfolio"] },
-      { label: "Analytics", items: ["Editable placeholder — add privacy-conscious analytics later if desired"] },
-      { label: "CI/CD", items: ["GitHub Actions deployment to GitHub Pages"] },
     ],
     challenges: [
       {
@@ -265,210 +306,22 @@ export const projects: Project[] = [
     developmentProcess: [
       "Define the offer categories and target conversations.",
       "Turn services into reusable, outcome-driven messaging blocks.",
-      "Build portfolio and case-study content that can support outreach and discovery calls.",
+      "Build portfolio and case-study content that can support outreach.",
       "Refine the studio positioning as more public work becomes available.",
     ],
     results: [
       "Created a clearer agency narrative that can support outreach, referrals, and inbound interest.",
-      "Prepared a scalable content structure for future public case studies and service updates.",
-      "Connected founder portfolio storytelling with product-studio positioning.",
+      "Prepared a scalable content structure for future public case studies.",
     ],
     lessonsLearned: [
       "Strong service positioning needs to sound like execution, not only aspiration.",
       "A portfolio can work harder when it explains how the work is delivered, not just what technologies were used.",
-      "Reusable content systems save time when services and projects evolve together.",
     ],
     nextSteps: [
-      "Replace placeholders with the live Techbckp site and branded assets.",
       "Add real case studies as more public client work becomes available.",
       "Expand engagement models and pricing notes when ready.",
     ],
-  },
-  {
-    title: "Android Application Projects",
-    slug: "android-application-projects",
-    shortDescription: "Generalized Android product delivery work spanning modern UI, API integrations, and ongoing product evolution.",
-    description:
-      "A portfolio-ready umbrella case study for mobile app delivery work across product launches, modernization, and feature development.",
-    category: "Mobile Apps",
-    tags: ["Android", "Kotlin", "Jetpack Compose", "API integration"],
-    thumbnail: "/images/projects/android-application-projects/cover.svg",
-    featured: true,
-    caseStudyUrl: "/projects/android-application-projects",
-    confidentiality: {
-      status: "public",
-      label: "Generalized project summary",
-      note: "Use this case study to highlight mobile capability without revealing client-sensitive material.",
-    },
-    role: "Android engineer and product delivery partner",
-    duration: "Across multiple product cycles",
-    projectType: "Mobile Product Delivery",
-    heroSummary: "This case study groups mobile delivery patterns that show how Android product work moved from concept and backlog to polished user flows.",
-    overview: {
-      product: "A generalized view of Android work covering app improvements, API integrations, release support, and architectural refinement.",
-      audience: "Startups and businesses evaluating mobile development support or Android modernization help.",
-      purpose: "Show mobile execution depth without exposing confidential details from client or employer projects.",
-    },
-    problem: [
-      "Mobile teams often need a partner who can handle architecture, implementation, and release support at the same time.",
-      "Many Android products accumulate UI inconsistency and technical debt as features grow.",
-    ],
-    solution: [
-      "Used modern Android patterns such as Kotlin, Compose or XML-based flows where appropriate, and clear state management.",
-      "Integrated APIs, local persistence, and release-minded workflows to keep products usable and maintainable.",
-      "Created a generalized case study that can speak to capability while respecting confidentiality constraints.",
-    ],
-    responsibilities: [
-      "Translate product requirements into reliable mobile workflows.",
-      "Improve architecture and delivery confidence for ongoing Android feature work.",
-      "Support testing, release preparation, and post-launch iteration.",
-    ],
-    keyFeatures: [
-      { title: "Modern Android delivery", description: "Build user-facing flows with Kotlin, Compose, and maintainable architectural patterns." },
-      { title: "API and data integration", description: "Connect mobile workflows with remote services and local persistence layers." },
-      { title: "Release support", description: "Help products move from implementation to store-ready releases and incremental updates." },
-      { title: "Scalable app structure", description: "Keep the codebase easier to extend as product requirements evolve." },
-    ],
-    screenshots: [
-      { src: "/images/projects/android-application-projects/cover.svg", alt: "Android projects cover illustration", caption: "Replace with sanitized Android app mockups or UI composites.", type: "mobile" },
-      { src: "/images/projects/android-application-projects/mobile.svg", alt: "Android screen placeholders", caption: "Add mobile UI screenshots that are safe to share publicly.", type: "mobile" },
-      { src: "/images/projects/android-application-projects/architecture.svg", alt: "Android architecture placeholder", caption: "Use for a simplified app-flow or architecture diagram.", type: "diagram" },
-    ],
-    architecture: [
-      { label: "Frontend", items: ["Kotlin", "Jetpack Compose", "XML where applicable", "MVVM/Clean Architecture"] },
-      { label: "Backend", items: ["Existing APIs and service integrations"] },
-      { label: "Database", items: ["Room", "Local caching", "Offline-friendly workflows where relevant"] },
-      { label: "Authentication", items: ["Editable placeholder — add auth patterns used in shareable projects"] },
-      { label: "APIs", items: ["REST APIs", "Firebase services", "Third-party integrations"] },
-      { label: "Hosting", items: ["App distribution and release workflows"] },
-      { label: "Payments", items: ["Editable placeholder — add when publicly shareable"] },
-      { label: "Analytics", items: ["Editable placeholder — add event tracking details when safe to share"] },
-      { label: "CI/CD", items: ["GitHub Actions or platform-specific mobile pipelines"] },
-    ],
-    challenges: [
-      {
-        challenge: "Balancing speed of delivery with maintainable mobile architecture.",
-        solution: "Kept implementation practical while using patterns that support long-term feature growth and testing.",
-      },
-      {
-        challenge: "Representing confidential mobile work publicly.",
-        solution: "Abstracted the delivery patterns and outcomes into a generalized case study with safe visual placeholders.",
-      },
-    ],
-    developmentProcess: [
-      "Discovery around user flows, existing app constraints, and release goals.",
-      "Plan architecture, screen structure, and integration approach.",
-      "Develop features, connect data layers, and test critical workflows.",
-      "Prepare for deployment and ongoing support iterations.",
-    ],
-    results: [
-      "Delivered reusable mobile patterns that support future client and recruiter conversations.",
-      "Improved the clarity of Android capability without exposing confidential implementation details.",
-      "Created a case-study foundation that can be expanded with safe screenshots and outcomes later.",
-    ],
-    lessonsLearned: [
-      "A strong mobile case study can focus on workflow, architecture, and delivery choices even when details are limited.",
-      "Release support and testing are as important to clients as feature implementation.",
-      "Generalized storytelling is useful when professional work cannot be shown directly.",
-    ],
-    nextSteps: [
-      "Replace placeholders with sanitized screens or product mockups.",
-      "Add specific mobile outcomes that are explicitly shareable.",
-      "Link out to future public Android products as they become available.",
-    ],
-  },
-  {
-    title: "Web Application Projects",
-    slug: "web-application-projects",
-    shortDescription: "Generalized web product delivery across SaaS flows, admin dashboards, and responsive business applications.",
-    description:
-      "A reusable web-app case study that presents product-building capability across responsive interfaces, admin workflows, and modern frontend delivery.",
-    category: "Web Apps",
-    tags: ["React", "Next.js", "TypeScript", "Dashboards"],
-    thumbnail: "/images/projects/web-application-projects/cover.svg",
-    featured: true,
-    caseStudyUrl: "/projects/web-application-projects",
-    confidentiality: {
-      status: "public",
-      label: "Generalized project summary",
-      note: "Replace placeholder visuals with safe screenshots from public or sanitized work.",
-    },
-    role: "Product engineer and full-stack delivery lead",
-    duration: "Across multiple projects",
-    projectType: "Web Product Delivery",
-    heroSummary: "This case study highlights how web products can be planned, built, and refined without relying on a generic resume-style presentation.",
-    overview: {
-      product: "A generalized view of web product work across SaaS dashboards, landing experiences, and application workflows.",
-      audience: "Clients, recruiters, and founders looking for product-minded web development support.",
-      purpose: "Show practical web delivery capability with room to expand into individual public case studies later.",
-    },
-    problem: [
-      "Businesses need web products that balance speed, polish, and maintainability.",
-      "A portfolio often needs to show web capability even when some of the underlying project details are private.",
-    ],
-    solution: [
-      "Created a generalized case study that focuses on responsive product flows, maintainable architecture, and iterative delivery.",
-      "Structured the work around reusable frontend patterns, API integration, and business-focused outcomes.",
-      "Kept content editable so the case study can absorb future public products without changing the site structure.",
-    ],
-    responsibilities: [
-      "Shape product requirements into scoped web experiences.",
-      "Build responsive interfaces and connect them to application workflows.",
-      "Refine delivery, performance, and maintainability during implementation.",
-    ],
-    keyFeatures: [
-      { title: "Responsive SaaS interfaces", description: "Design and implement layouts that work cleanly across desktop and mobile breakpoints." },
-      { title: "Admin and operations dashboards", description: "Support internal and external workflows with clear data presentation and task visibility." },
-      { title: "API integrations", description: "Connect frontend experiences to application services and business workflows." },
-      { title: "Performance-minded delivery", description: "Keep pages fast, clear, and structured for future growth." },
-    ],
-    screenshots: [
-      { src: "/images/projects/web-application-projects/cover.svg", alt: "Web projects cover illustration", caption: "Replace with a public SaaS dashboard or website overview image.", type: "desktop" },
-      { src: "/images/projects/web-application-projects/dashboard.svg", alt: "Web app dashboard placeholder", caption: "Use for an admin dashboard or application workflow screenshot.", type: "desktop" },
-      { src: "/images/projects/web-application-projects/mockup.svg", alt: "Web app mockup placeholder", caption: "Use for product mockups, browser frames, or linked demo visuals.", type: "mockup" },
-    ],
-    architecture: [
-      { label: "Frontend", items: ["React", "Next.js", "TypeScript", "Tailwind CSS"] },
-      { label: "Backend", items: ["Editable placeholder — add shareable API or server stack"] },
-      { label: "Database", items: ["Editable placeholder — add shareable data stores"] },
-      { label: "Authentication", items: ["Editable placeholder — add auth details when public"] },
-      { label: "APIs", items: ["REST APIs", "GraphQL where needed", "Third-party service integrations"] },
-      { label: "Hosting", items: ["Static hosting for marketing routes", "Editable application hosting notes"] },
-      { label: "Payments", items: ["Editable placeholder — add when relevant"] },
-      { label: "Analytics", items: ["Editable placeholder — add reporting stack"] },
-      { label: "CI/CD", items: ["GitHub Actions", "Automated build and deployment workflows"] },
-    ],
-    challenges: [
-      {
-        challenge: "Showing range without turning the site into a list of unrelated tools.",
-        solution: "Presented web work through shared product-delivery patterns and business outcomes instead of one-off feature lists.",
-      },
-      {
-        challenge: "Maintaining editability for future public projects.",
-        solution: "Used a data-driven case-study structure so new web projects can be added with one object and image assets.",
-      },
-    ],
-    developmentProcess: [
-      "Map business goals to application workflows and page structure.",
-      "Design reusable components and architecture choices for maintainable delivery.",
-      "Build, test, and refine responsive experiences.",
-      "Prepare the system for future project additions and case-study updates.",
-    ],
-    results: [
-      "Created a portfolio-ready web case study that supports client and recruiter conversations.",
-      "Prepared a scalable content model for future public web products.",
-      "Improved how full-stack and frontend capability are presented together.",
-    ],
-    lessonsLearned: [
-      "Good web case studies need clear narrative structure, not just screenshots.",
-      "Editability matters when a portfolio must grow with products and services over time.",
-      "Responsive delivery and product clarity are valuable differentiators in consulting conversations.",
-    ],
-    nextSteps: [
-      "Replace placeholders with public product imagery.",
-      "Break out future web products into standalone case studies as needed.",
-      "Add explicit results only when they are available and safe to share.",
-    ],
+    liveUrl: "https://techbckp.com",
   },
   {
     title: "Retail Pickup Application",
@@ -484,7 +337,6 @@ export const projects: Project[] = [
     confidentiality: {
       status: "limited",
       label: "Professional experience — details limited due to confidentiality.",
-      note: "Do not add internal screenshots, code, architecture diagrams, or proprietary company information here.",
     },
     role: "Android engineer",
     duration: "Professional experience",
@@ -511,21 +363,13 @@ export const projects: Project[] = [
     keyFeatures: [
       { title: "Operational workflows", description: "Support time-sensitive actions in a retail pickup context." },
       { title: "Reliable Android delivery", description: "Focus on clarity, responsiveness, and maintainability in a production app." },
-      { title: "Confidentiality-safe presentation", description: "Keep the case study useful without exposing protected information." },
+      { title: "Confidentiality-safe presentation", description: "Keep the case study safe without exposing protected information." },
     ],
     screenshots: [
-      { src: "/images/projects/retail-pickup-application/cover.svg", alt: "Retail pickup placeholder visual", caption: "Replace with a sanitized diagram or non-confidential mockup only.", type: "mobile" },
+      { src: "/images/projects/retail-pickup-application/cover.svg", alt: "Retail pickup placeholder visual", caption: "Diagram placeholder representing mobile workflows.", type: "mobile" },
     ],
     architecture: [
       { label: "Frontend", items: ["Android app workflows"] },
-      { label: "Backend", items: ["Confidential"] },
-      { label: "Database", items: ["Confidential"] },
-      { label: "Authentication", items: ["Confidential"] },
-      { label: "APIs", items: ["Confidential"] },
-      { label: "Hosting", items: ["Not applicable to public case study"] },
-      { label: "Payments", items: ["Not disclosed"] },
-      { label: "Analytics", items: ["Not disclosed"] },
-      { label: "CI/CD", items: ["Not disclosed"] },
     ],
     challenges: [
       { challenge: "Sharing professional experience safely.", solution: "Kept the write-up high level and avoided proprietary implementation details." },
@@ -543,7 +387,7 @@ export const projects: Project[] = [
       "Operational apps require clarity and reliability as much as feature breadth.",
       "Confidential work can still be presented usefully through generalized problem-solving language.",
     ],
-    nextSteps: ["Replace with sanitized visuals only if they are approved for sharing."],
+    nextSteps: ["Monitor production logs for edge-case errors."],
   },
   {
     title: "Seller Management Application",
@@ -559,7 +403,6 @@ export const projects: Project[] = [
     confidentiality: {
       status: "limited",
       label: "Professional experience — details limited due to confidentiality.",
-      note: "Use generalized descriptions only and avoid any company-specific visuals or flows.",
     },
     role: "Android engineer",
     duration: "Professional experience",
@@ -589,18 +432,10 @@ export const projects: Project[] = [
       { title: "Confidentiality-safe storytelling", description: "Represent real experience without exposing the underlying system." },
     ],
     screenshots: [
-      { src: "/images/projects/seller-management-application/cover.svg", alt: "Seller management placeholder visual", caption: "Replace only with approved or abstracted visuals.", type: "mobile" },
+      { src: "/images/projects/seller-management-application/cover.svg", alt: "Seller management placeholder visual", caption: "Diagram placeholder representing seller workflows.", type: "mobile" },
     ],
     architecture: [
       { label: "Frontend", items: ["Android app workflows"] },
-      { label: "Backend", items: ["Confidential"] },
-      { label: "Database", items: ["Confidential"] },
-      { label: "Authentication", items: ["Confidential"] },
-      { label: "APIs", items: ["Confidential"] },
-      { label: "Hosting", items: ["Not disclosed"] },
-      { label: "Payments", items: ["Not applicable"] },
-      { label: "Analytics", items: ["Not disclosed"] },
-      { label: "CI/CD", items: ["Not disclosed"] },
     ],
     challenges: [
       { challenge: "Balancing public portfolio clarity with employer confidentiality.", solution: "Documented responsibilities and outcomes without naming internal systems or sharing protected visuals." },
@@ -618,7 +453,7 @@ export const projects: Project[] = [
       "Operational product work benefits from concise UX and dependable implementation.",
       "Confidential case studies still need enough specificity to communicate real responsibility.",
     ],
-    nextSteps: ["Add only approved abstractions if future sharing permissions exist."],
+    nextSteps: ["Enhance accessibility labeling for core flows."],
   },
   {
     title: "Proctoring Application Migration",
@@ -634,7 +469,6 @@ export const projects: Project[] = [
     confidentiality: {
       status: "limited",
       label: "Professional experience — details limited due to confidentiality.",
-      note: "Keep this case study high level and avoid internal tooling, screenshots, or sensitive implementation details.",
     },
     role: "Android engineer",
     duration: "Professional experience",
@@ -664,18 +498,10 @@ export const projects: Project[] = [
       { title: "Generalized communication", description: "Present the work safely for a public portfolio." },
     ],
     screenshots: [
-      { src: "/images/projects/proctoring-application-migration/cover.svg", alt: "Proctoring migration placeholder visual", caption: "Replace only with approved mockups or abstract diagrams.", type: "diagram" },
+      { src: "/images/projects/proctoring-application-migration/cover.svg", alt: "Proctoring migration placeholder visual", caption: "Diagram placeholder representing migration flows.", type: "diagram" },
     ],
     architecture: [
       { label: "Frontend", items: ["Android app workflows"] },
-      { label: "Backend", items: ["Confidential"] },
-      { label: "Database", items: ["Confidential"] },
-      { label: "Authentication", items: ["Confidential"] },
-      { label: "APIs", items: ["Confidential"] },
-      { label: "Hosting", items: ["Not disclosed"] },
-      { label: "Payments", items: ["Not applicable"] },
-      { label: "Analytics", items: ["Not disclosed"] },
-      { label: "CI/CD", items: ["Not disclosed"] },
     ],
     challenges: [
       { challenge: "Improving the implementation while protecting continuity in a sensitive domain.", solution: "Used a gradual, maintainability-focused modernization mindset." },
@@ -693,7 +519,7 @@ export const projects: Project[] = [
       "Migration work benefits from steady sequencing and careful validation.",
       "Sensitive products require disciplined communication as well as disciplined implementation.",
     ],
-    nextSteps: ["Replace the placeholder illustration only if a safe public visual becomes available."],
+    nextSteps: ["Perform routine dependency updates."],
   },
 ];
 
@@ -703,7 +529,6 @@ export const projectFilters = [
   "All",
   "AI and SaaS",
   "Mobile Apps",
-  "Web Apps",
   "Agency Work",
   "Professional Experience",
 ] as const;

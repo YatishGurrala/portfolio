@@ -34,8 +34,8 @@ export function ProjectsExplorer({ projects }: ProjectsExplorerProps) {
               onClick={() => setActiveFilter(filter)}
               className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
                 selected
-                  ? "bg-indigo-600 text-white"
-                  : "border border-slate-200/70 bg-white/70 text-slate-700 hover:bg-white dark:border-white/10 dark:bg-slate-950/70 dark:text-slate-200 dark:hover:bg-slate-900"
+                  ? "bg-neutral-900 text-white dark:bg-white dark:text-neutral-900"
+                  : "border border-slate-200/70 bg-white/70 text-slate-700 hover:bg-neutral-100 dark:border-white/10 dark:bg-slate-950/70 dark:text-slate-200 dark:hover:bg-slate-900"
               }`}
               aria-pressed={selected}
             >

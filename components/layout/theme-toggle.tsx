@@ -1,35 +1,16 @@
 "use client";
 
-import { useEffect, useState } from "react";
-
 const THEME_KEY = "portfolio-theme";
 
-function applyTheme(theme: "light" | "dark") {
-  document.documentElement.classList.toggle("dark", theme === "dark");
-  document.documentElement.style.colorScheme = theme;
-  localStorage.setItem(THEME_KEY, theme);
-}
-
 export function ThemeToggle() {
-  const [theme, setTheme] = useState<"light" | "dark">(() => {
-    if (typeof window === "undefined") {
-      return "light";
-    }
-
-    const storedTheme = localStorage.getItem(THEME_KEY) as "light" | "dark" | null;
-    const preferredDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-    return storedTheme ?? (preferredDark ? "dark" : "light");
-  });
-
-  useEffect(() => {
-    applyTheme(theme);
-  }, [theme]);
-
   const toggleTheme = () => {
-    const nextTheme = theme === "dark" ? "light" : "dark";
-    setTheme(nextTheme);
-    applyTheme(nextTheme);
+    const isDark = document.documentElement.classList.contains("dark");
+    const nextTheme = isDark ? "light" : "dark";
+    
+    document.documentElement.classList.toggle("dark", nextTheme === "dark");
+    document.documentElement.style.colorScheme = nextTheme;
+    localStorage.setItem(THEME_KEY, nextTheme);
+    window.dispatchEvent(new Event("theme-change"));
   };
 
   return (
@@ -40,7 +21,8 @@ export function ThemeToggle() {
       aria-label="Toggle dark mode"
       title="Toggle dark mode"
     >
-      {theme === "dark" ? "☀️" : "🌙"}
+      <span className="dark:hidden">🌙</span>
+      <span className="hidden dark:inline">☀️</span>
     </button>
   );
 }

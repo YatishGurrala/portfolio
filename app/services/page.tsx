@@ -79,7 +79,7 @@ export default function ServicesPage() {
               <p className="eyebrow">Engagement models</p>
               <h2 className="text-3xl font-semibold tracking-tight">Flexible ways to work together</h2>
             </div>
-            <p className="max-w-2xl text-sm leading-7 text-slate-600 dark:text-slate-300">
+              <p className="max-w-2xl text-sm leading-7 text-slate-600 dark:text-slate-300">
               Pricing is intentionally left editable for now. Replace each placeholder once you decide how you want to package offers publicly.
             </p>
           </div>

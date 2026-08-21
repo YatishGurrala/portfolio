@@ -125,7 +125,7 @@ export default function HomePage() {
           <ol className="grid gap-4 md:grid-cols-2">
             {siteConfig.process.map((step, index) => (
               <li key={step} className="grid-card flex items-start gap-4">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-indigo-600 text-sm font-semibold text-white">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-neutral-900 text-sm font-semibold text-white dark:bg-white dark:text-neutral-900">
                   {index + 1}
                 </span>
                 <div>

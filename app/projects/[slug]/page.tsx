@@ -68,7 +68,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       </Script>
       <section className="section-space">
         <div className="page-shell space-y-10">
-          <Link href="/projects" className="text-sm font-medium text-indigo-600 dark:text-indigo-300">
+          <Link href="/projects" className="text-sm font-medium text-neutral-900 underline decoration-neutral-300 underline-offset-4 dark:text-white dark:decoration-neutral-600">
             ← Back to projects
           </Link>
           <div className="surface grid gap-8 px-6 py-8 sm:px-10 sm:py-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
@@ -83,7 +83,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 <span className="rounded-full border border-slate-200/70 px-3 py-1 dark:border-white/10">{project.confidentiality.label}</span>
               </div>
               {project.confidentiality.note ? (
-                <p className="rounded-2xl border border-amber-300/60 bg-amber-50 px-4 py-3 text-sm text-amber-900 dark:border-amber-400/20 dark:bg-amber-500/10 dark:text-amber-100">
+                <p className="rounded-2xl border border-neutral-200/70 bg-neutral-100 px-4 py-3 text-sm text-neutral-700 dark:border-white/10 dark:bg-white/5 dark:text-neutral-300">
                   {project.confidentiality.note}
                 </p>
               ) : null}
@@ -99,7 +99,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               </div>
               <ShareButtons title={project.title} />
             </div>
-            <div className="overflow-hidden rounded-3xl border border-white/60 bg-slate-100 dark:border-white/10 dark:bg-slate-900">
+            <div className="overflow-hidden rounded-3xl border border-neutral-200/70 bg-neutral-100 dark:border-white/10 dark:bg-neutral-900">
               <Image
                 src={project.thumbnail}
                 alt={`${project.title} hero image`}
@@ -144,7 +144,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               <ul className="space-y-3 text-sm leading-7 text-slate-600 dark:text-slate-300">
                 {project.problem.map((item) => (
                   <li key={item} className="flex gap-3">
-                    <span className="mt-2 h-2 w-2 rounded-full bg-indigo-500" />
+                    <span className="mt-2 h-2 w-2 rounded-full bg-neutral-500" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -155,7 +155,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               <ul className="space-y-3 text-sm leading-7 text-slate-600 dark:text-slate-300">
                 {project.solution.map((item) => (
                   <li key={item} className="flex gap-3">
-                    <span className="mt-2 h-2 w-2 rounded-full bg-sky-500" />
+                    <span className="mt-2 h-2 w-2 rounded-full bg-neutral-500" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -198,7 +198,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     </span>
                     <div>{shot.caption}</div>
                     {shot.videoUrl ? (
-                      <a className="mt-3 inline-flex text-sm font-medium text-indigo-600 dark:text-indigo-300" href={shot.videoUrl} target="_blank" rel="noreferrer">
+                      <a className="mt-3 inline-flex text-sm font-medium text-neutral-900 underline decoration-neutral-300 underline-offset-4 dark:text-white dark:decoration-neutral-600" href={shot.videoUrl} target="_blank" rel="noreferrer">
                         Watch video demo
                       </a>
                     ) : null}
@@ -241,7 +241,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               <ol className="space-y-3 text-sm leading-7 text-slate-600 dark:text-slate-300">
                 {project.developmentProcess.map((item, index) => (
                   <li key={item} className="flex gap-3 rounded-2xl border border-slate-200/70 p-4 dark:border-white/10">
-                    <span className="font-semibold text-indigo-600 dark:text-indigo-300">0{index + 1}</span>
+                    <span className="font-semibold text-neutral-900 dark:text-white">0{index + 1}</span>
                     <span>{item}</span>
                   </li>
                 ))}
