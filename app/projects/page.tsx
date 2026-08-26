@@ -1,7 +1,7 @@
 import { buildMetadata } from "@/lib/metadata";
-import { projects } from "@/data/projects";
 import { ProjectsExplorer } from "@/components/projects/projects-explorer";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { getContentRepository } from "@/lib/content-repository";
 
 export const metadata = buildMetadata({
   title: "Projects | AI SaaS, mobile apps, web apps, and professional case studies",
@@ -10,7 +10,10 @@ export const metadata = buildMetadata({
   path: "/projects",
 });
 
-export default function ProjectsPage() {
+export default async function ProjectsPage() {
+  const repository = await getContentRepository();
+  const projects = await repository.getPublishedProjects();
+
   return (
     <section className="section-space">
       <div className="page-shell space-y-10">

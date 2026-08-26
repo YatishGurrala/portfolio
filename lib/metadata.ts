@@ -9,12 +9,21 @@ interface MetadataOptions {
   image?: string;
 }
 
-export function buildMetadata({ title, description, path = "/", image = "/og/default.svg" }: MetadataOptions): Metadata {
-  const canonical = absoluteUrl(path);
+interface SiteProfile {
+  siteUrl: string;
+  siteName: string;
+}
+
+export function buildMetadata(
+  { title, description, path = "/", image = "/og/default.svg" }: MetadataOptions,
+  siteProfile?: SiteProfile
+): Metadata {
+  const currentSiteConfig = siteProfile || siteConfig;
+  const canonical = absoluteUrl(path); // absoluteUrl handles siteConfig internally using the configured domain
   const imageUrl = absoluteUrl(image);
 
   return {
-    metadataBase: new URL(siteConfig.siteUrl),
+    metadataBase: new URL(currentSiteConfig.siteUrl),
     title,
     description,
     alternates: {
@@ -25,7 +34,7 @@ export function buildMetadata({ title, description, path = "/", image = "/og/def
       title,
       description,
       url: canonical,
-      siteName: siteConfig.siteName,
+      siteName: currentSiteConfig.siteName,
       images: [
         {
           url: imageUrl,

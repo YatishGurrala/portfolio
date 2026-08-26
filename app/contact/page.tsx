@@ -1,7 +1,7 @@
 import { ButtonLink } from "@/components/ui/button-link";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { contactFormConfig, socialLinks } from "@/data/socialLinks";
 import { buildMetadata } from "@/lib/metadata";
+import { getContentRepository } from "@/lib/content-repository";
 
 export const metadata = buildMetadata({
   title: "Contact | Project inquiry and collaboration options",
@@ -22,7 +22,14 @@ const projectTypes = [
 
 const budgetRanges = ["Under $2,500", "$2,500 - $5,000", "$5,000 - $10,000", "$10,000+", "Let's discuss"];
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const repository = await getContentRepository();
+  const contactFormConfig = await repository.getContactConfig();
+  const socialLinks = await repository.getSocialLinks();
+
+  if (!contactFormConfig) {
+    return null;
+  }
   const primaryButtonStyle = {
     backgroundColor: "var(--button-primary-bg)",
     color: "var(--button-primary-fg)",

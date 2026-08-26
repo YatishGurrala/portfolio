@@ -1,8 +1,6 @@
 import { SectionHeading } from "@/components/ui/section-heading";
-import { siteConfig } from "@/data/site";
-import { skillCategories } from "@/data/skills";
-import { experiences } from "@/data/experience";
 import { buildMetadata } from "@/lib/metadata";
+import { getContentRepository } from "@/lib/content-repository";
 
 export const metadata = buildMetadata({
   title: "About | Product-minded engineering across AI, Android, SaaS, and web delivery",
@@ -52,7 +50,16 @@ function formatWorkDate(dateStr?: string, current?: boolean) {
   return `${monthNames[monthIdx] || ""} ${year}`;
 }
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const repository = await getContentRepository();
+  const siteConfig = await repository.getSiteProfile();
+  const experiences = await repository.getPublishedExperiences();
+  const skillCategories = await repository.getSkillCategories();
+
+  if (!siteConfig) {
+    return null;
+  }
+
   return (
     <section className="section-space">
       <div className="page-shell space-y-12">

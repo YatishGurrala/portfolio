@@ -1,11 +1,16 @@
 import Link from "next/link";
 
-import { siteConfig } from "@/data/site";
-
+import { getContentRepository } from "@/lib/content-repository";
 import { ButtonLink } from "@/components/ui/button-link";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
 
-export function SiteHeader() {
+export async function SiteHeader() {
+  const repository = await getContentRepository();
+  const siteConfig = await repository.getSiteProfile();
+
+  if (!siteConfig) {
+    return null;
+  }
   return (
     <header className="sticky top-0 z-40 border-b border-neutral-200/70 bg-[color:var(--background)]/90 backdrop-blur dark:border-white/10">
       <div className="page-shell flex flex-col gap-4 py-4 lg:flex-row lg:items-center lg:justify-between">

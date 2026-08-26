@@ -5,13 +5,19 @@ import "./globals.css";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { buildMetadata } from "@/lib/metadata";
+import { getContentRepository } from "@/lib/content-repository";
 
-export const metadata: Metadata = buildMetadata({
-  title: "Yatish Gurrala Portfolio | AI Product Engineer, Mobile & Web Developer",
-  description:
-    "Data-driven portfolio and case-study website for Yatish Gurrala, covering AI SaaS, mobile apps, web products, Techbckp services, and contact options.",
-  path: "/",
-});
+export async function generateMetadata() {
+  const repository = await getContentRepository();
+  const siteConfig = await repository.getSiteProfile();
+
+  return buildMetadata({
+    title: "Yatish Gurrala Portfolio | AI Product Engineer, Mobile & Web Developer",
+    description:
+      "Data-driven portfolio and case-study website for Yatish Gurrala, covering AI SaaS, mobile apps, web products, Techbckp services, and contact options.",
+    path: "/",
+  }, siteConfig || undefined);
+}
 
 export const viewport: Viewport = {
   width: "device-width",

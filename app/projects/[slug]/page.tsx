@@ -5,9 +5,9 @@ import { notFound } from "next/navigation";
 
 import { ShareButtons } from "@/components/case-study/share-buttons";
 import { ButtonLink } from "@/components/ui/button-link";
-import { getProjectBySlug, projects } from "@/data/projects";
 import { absoluteUrl } from "@/data/site";
 import { buildMetadata } from "@/lib/metadata";
+import { getContentRepository } from "@/lib/content-repository";
 
 interface ProjectPageProps {
   params: Promise<{
@@ -16,12 +16,15 @@ interface ProjectPageProps {
 }
 
 export async function generateStaticParams() {
+  const repository = await getContentRepository();
+  const projects = await repository.getPublishedProjects();
   return projects.map((project) => ({ slug: project.slug }));
 }
 
 export async function generateMetadata({ params }: ProjectPageProps) {
   const { slug } = await params;
-  const project = getProjectBySlug(slug);
+  const repository = await getContentRepository();
+  const project = await repository.getProjectBySlug(slug);
 
   if (!project) {
     return buildMetadata({
@@ -41,7 +44,8 @@ export async function generateMetadata({ params }: ProjectPageProps) {
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
   const { slug } = await params;
-  const project = getProjectBySlug(slug);
+  const repository = await getContentRepository();
+  const project = await repository.getProjectBySlug(slug);
 
   if (!project) {
     notFound();

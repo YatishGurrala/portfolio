@@ -1,9 +1,8 @@
 import Image from "next/image";
-
 import { ButtonLink } from "@/components/ui/button-link";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { articles } from "@/data/articles";
 import { buildMetadata } from "@/lib/metadata";
+import { getContentRepository } from "@/lib/content-repository";
 
 export const metadata = buildMetadata({
   title: "Articles | LinkedIn posts and technical writing",
@@ -12,7 +11,10 @@ export const metadata = buildMetadata({
   path: "/articles",
 });
 
-export default function ArticlesPage() {
+export default async function ArticlesPage() {
+  const repository = await getContentRepository();
+  const articles = await repository.getPublishedArticles();
+
   return (
     <section className="section-space">
       <div className="page-shell space-y-10">

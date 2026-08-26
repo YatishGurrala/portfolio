@@ -2,8 +2,15 @@
 
 import { useMemo, useState } from "react";
 
-import { projectFilters } from "@/data/projects";
 import { Project } from "@/data/types";
+
+const projectFilters = [
+  "All",
+  "AI and SaaS",
+  "Mobile Apps",
+  "Agency Work",
+  "Professional Experience",
+] as const;
 
 import { ProjectCard } from "@/components/projects/project-card";
 

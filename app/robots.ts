@@ -1,15 +1,19 @@
 import type { MetadataRoute } from "next";
-
-import { absoluteUrl } from "@/data/site";
+import { getContentRepository } from "@/lib/content-repository";
 
 export const dynamic = "force-static";
 
-export default function robots(): MetadataRoute.Robots {
+export default async function robots(): Promise<MetadataRoute.Robots> {
+  const repository = await getContentRepository();
+  const siteConfig = await repository.getSiteProfile();
+  const siteUrl = siteConfig?.siteUrl || "http://localhost:3000";
+  const cleanUrl = siteUrl.replace(/\/$/, "");
+
   return {
     rules: {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: absoluteUrl("/sitemap.xml"),
+    sitemap: `${cleanUrl}/sitemap.xml`,
   };
 }

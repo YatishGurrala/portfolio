@@ -1,9 +1,15 @@
 import Link from "next/link";
 
-import { siteConfig } from "@/data/site";
-import { socialLinks } from "@/data/socialLinks";
+import { getContentRepository } from "@/lib/content-repository";
 
-export function SiteFooter() {
+export async function SiteFooter() {
+  const repository = await getContentRepository();
+  const siteConfig = await repository.getSiteProfile();
+  const socialLinks = await repository.getSocialLinks();
+
+  if (!siteConfig) {
+    return null;
+  }
   return (
     <footer className="border-t border-white/60 py-12 dark:border-white/10">
       <div className="page-shell grid gap-10 lg:grid-cols-[1.2fr_0.8fr]">

@@ -1,7 +1,7 @@
 import { ButtonLink } from "@/components/ui/button-link";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { services } from "@/data/services";
 import { buildMetadata } from "@/lib/metadata";
+import { getContentRepository } from "@/lib/content-repository";
 
 export const metadata = buildMetadata({
   title: "Services | AI SaaS, mobile, web, MVP, and consulting support",
@@ -33,7 +33,10 @@ const sections = [
   },
 ];
 
-export default function ServicesPage() {
+export default async function ServicesPage() {
+  const repository = await getContentRepository();
+  const services = await repository.getPublishedServices();
+
   const coreServices = services.filter((service) => service.category === "Core");
   const engagementModels = services.filter((service) => service.category === "Engagement");
 

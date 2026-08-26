@@ -3,13 +3,20 @@ import Script from "next/script";
 import { ButtonLink } from "@/components/ui/button-link";
 import { ProjectCard } from "@/components/projects/project-card";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { featuredProjects } from "@/data/projects";
-import { services } from "@/data/services";
-import { siteConfig } from "@/data/site";
-import { skillCategories } from "@/data/skills";
-import { socialLinks } from "@/data/socialLinks";
+import { getContentRepository } from "@/lib/content-repository";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const repository = await getContentRepository();
+  const siteConfig = await repository.getSiteProfile();
+  const socialLinks = await repository.getSocialLinks();
+  const skillCategories = await repository.getSkillCategories();
+  const featuredProjects = await repository.getFeaturedProjects();
+  const services = await repository.getPublishedServices();
+
+  if (!siteConfig) {
+    return null;
+  }
+
   const personSchema = {
     "@context": "https://schema.org",
     "@type": "Person",

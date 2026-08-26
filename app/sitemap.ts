@@ -1,11 +1,13 @@
 import type { MetadataRoute } from "next";
 
-import { projects } from "@/data/projects";
 import { absoluteUrl } from "@/data/site";
+import { getContentRepository } from "@/lib/content-repository";
 
 export const dynamic = "force-static";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const repository = await getContentRepository();
+  const projects = await repository.getPublishedProjects();
   const staticRoutes = ["", "/projects", "/services", "/about", "/articles", "/contact"];
 
   return [
