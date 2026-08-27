@@ -25,13 +25,14 @@ export async function generateMetadata({ params }: ProjectPageProps) {
   const { slug } = await params;
   const repository = await getContentRepository();
   const project = await repository.getProjectBySlug(slug);
+  const siteProfile = await repository.getSiteProfile();
 
   if (!project) {
     return buildMetadata({
       title: "Case study not found",
       description: "The requested case study does not exist.",
       path: `/projects/${slug}`,
-    });
+    }, siteProfile || undefined);
   }
 
   return buildMetadata({
@@ -39,7 +40,7 @@ export async function generateMetadata({ params }: ProjectPageProps) {
     description: project.description,
     path: project.caseStudyUrl,
     image: project.thumbnail,
-  });
+  }, siteProfile || undefined);
 }
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
