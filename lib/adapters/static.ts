@@ -1,4 +1,4 @@
-import { IContentRepository } from "../repository-types";
+
 import { projects, getProjectBySlug as getStaticProjectBySlug } from "@/data/projects";
 import { experiences } from "@/data/experience";
 import { services } from "@/data/services";
@@ -42,7 +42,7 @@ export const getSiteProfile = async () => {
 };
 
 export const getSocialLinks = async (): Promise<SocialLink[]> => {
-  return [...socialLinks];
+  return socialLinks.filter((link) => link.href.trim().length > 0);
 };
 
 export const getContactConfig = async (): Promise<ContactFormConfig | null> => {
