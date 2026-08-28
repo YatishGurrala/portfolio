@@ -1,3 +1,4 @@
+import { notInArray } from "drizzle-orm";
 import { neon } from "@neondatabase/serverless";
 import { drizzle } from "drizzle-orm/neon-http";
 import * as schema from "./schema";
@@ -155,6 +156,16 @@ async function main() {
 
   // 5. Seed Work Experiences
   console.log("Seeding work experiences...");
+  // Treat data/experience.ts as the canonical source: delete any seeded DB experiences that no longer exist in static data
+  const validExpKeys = staticExperiences.map(
+    (exp) => `${exp.organization.toLowerCase()}-${exp.role.toLowerCase()}`
+  );
+  if (validExpKeys.length > 0) {
+    await db
+      .delete(schema.workExperiences)
+      .where(notInArray(schema.workExperiences.stableKey, validExpKeys));
+  }
+
   for (let i = 0; i < staticExperiences.length; i++) {
     const exp = staticExperiences[i];
     const stableKey = `${exp.organization.toLowerCase()}-${exp.role.toLowerCase()}`;
