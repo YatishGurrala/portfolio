@@ -1,8 +1,9 @@
-import Script from "next/script";
+import Image from "next/image";
 
 import { ButtonLink } from "@/components/ui/button-link";
 import { ProjectCard } from "@/components/projects/project-card";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { absoluteUrl } from "@/data/site";
 import { getContentRepository } from "@/lib/content-repository";
 
 export default async function HomePage() {
@@ -23,6 +24,7 @@ export default async function HomePage() {
     name: siteConfig.name,
     jobTitle: siteConfig.title,
     url: siteConfig.siteUrl,
+    image: absoluteUrl("/images/profile/yatish-gurrala.png"),
     sameAs: socialLinks.map((item) => item.href),
     knowsAbout: skillCategories.flatMap((category) => category.items),
   };
@@ -38,15 +40,17 @@ export default async function HomePage() {
 
   return (
     <>
-      <Script id="person-schema" type="application/ld+json">
-        {JSON.stringify(personSchema)}
-      </Script>
-      <Script id="organization-schema" type="application/ld+json">
-        {JSON.stringify(organizationSchema)}
-      </Script>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
       <section className="section-space">
         <div className="page-shell">
-          <div className="surface grid gap-10 px-6 py-10 sm:px-10 sm:py-14 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+          <div className="surface grid gap-10 px-6 py-10 sm:px-10 sm:py-14 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             <div className="space-y-8">
               <div className="space-y-5">
                 <p className="eyebrow">Founder portfolio · Product studio · Technical case studies</p>
@@ -71,13 +75,25 @@ export default async function HomePage() {
                 ))}
               </ul>
             </div>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
-              {siteConfig.roleSummary.map((item) => (
-                <div key={item} className="grid-card p-5">
-                  <p className="text-sm uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">Positioning</p>
-                  <p className="mt-3 text-xl font-semibold tracking-tight">{item}</p>
-                </div>
-              ))}
+            <div className="flex flex-col gap-5">
+              <div className="relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-2xl border border-slate-200/80 bg-slate-100 shadow-sm dark:border-white/10 dark:bg-slate-900/40 sm:max-w-md lg:max-w-none">
+                <Image
+                  src="/images/profile/yatish-gurrala.png"
+                  alt="Yatish Gurrala, product and software engineer"
+                  fill
+                  priority
+                  sizes="(min-width: 1024px) 420px, (min-width: 640px) 450px, 90vw"
+                  className="object-cover object-top"
+                />
+              </div>
+              <div className="grid gap-3 sm:grid-cols-2">
+                {siteConfig.roleSummary.map((item) => (
+                  <div key={item} className="grid-card p-4">
+                    <p className="text-xs uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">Positioning</p>
+                    <p className="mt-1.5 text-base font-semibold tracking-tight">{item}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
